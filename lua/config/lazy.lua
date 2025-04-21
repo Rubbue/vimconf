@@ -37,6 +37,13 @@ if vim.loop.os_uname().sysname == "Darwin" then
 end
 
 
+-- Tabs
+vim.opt.expandtab = false      -- Use actual tab characters
+vim.opt.tabstop = 4            -- Display width of a tab character
+vim.opt.shiftwidth = 4         -- Indent amount when using >>, <<
+vim.opt.softtabstop = 4        -- How many spaces a <Tab> feels like
+
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -49,3 +56,5 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+vim.cmd("colorscheme tokyonight-night") 
