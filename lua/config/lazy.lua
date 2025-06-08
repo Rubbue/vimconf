@@ -57,4 +57,7 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+-- Luasnippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
 vim.cmd("colorscheme tokyonight-night") 
