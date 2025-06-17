@@ -18,6 +18,8 @@ map("n","<leader>ft", "<cmd>ToggleTerm<cr>",opts)
 -- Telescope find files
 map("n", "<leader>ff", "<cmd>FzfLua files /<cr>", opts)
 
+map("n", "<leader>fb", "<cmd>FzfLua buffers /<cr>",opts)
+
 -- Telescope live grep
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 
@@ -39,6 +41,8 @@ map("n","<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>",opts)
 -- Goto definition
 map("n","gd", "<cmd>lua vim.lsp.buf.definition()<cr>",opts)
 
-map("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
-map("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})	
-map("n", "<BS>", "<Cmd>bdelete<CR>", {})
+-- Hover and def
+map('n', 'K', vim.lsp.buf.hover, { desc = "LSP Hover (type + docs)" })
+map('n', '<leader>k', vim.lsp.buf.signature_help, { desc = "Function signature help" })
+
+map('n', "<leader>r",vim.lsp.buf.rename, opts)

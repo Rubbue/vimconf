@@ -57,7 +57,18 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
--- Luasnippets
-require("luasnip.loaders.from_vscode").lazy_load()
 
-vim.cmd("colorscheme tokyonight-night") 
+vim.cmd("colorscheme tokyonight-night")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "markdown_inline" },
+  callback = function()
+    pcall(vim.treesitter.start, 0, "markdown")
+    pcall(vim.treesitter.start, 0, "markdown_inline")
+  end,
+})
+
+
+vim.opt.number = true            -- Shows the absolute number on the current line
+vim.opt.relativenumber = true    -- Shows relative numbers on other lines
+
