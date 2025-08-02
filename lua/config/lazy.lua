@@ -72,3 +72,5 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.number = true            -- Shows the absolute number on the current line
 vim.opt.relativenumber = true    -- Shows relative numbers on other lines
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
