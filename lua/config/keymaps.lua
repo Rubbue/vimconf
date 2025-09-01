@@ -46,3 +46,21 @@ map('n', 'K', vim.lsp.buf.hover, { desc = "LSP Hover (type + docs)" })
 map('n', '<leader>k', vim.lsp.buf.signature_help, { desc = "Function signature help" })
 
 map('n', "<leader>r",vim.lsp.buf.rename, opts)
+
+map("n", "<leader>rn", function()
+  vim.lsp.buf.rename()
+  -- After renaming, open Trouble references
+  vim.defer_fn(function()
+    require("trouble").open("lsp_references")
+  end, 200)
+end, { desc = "Rename symbol and show references" })
+
+
+-- Show diagnostics
+map("n", "<leader>xx", function() require("trouble").toggle() end,
+  { desc = "Toggle Trouble (diagnostics)" })
+
+-- Show references for symbol under cursor
+map("n", "gr", function() require("trouble").open("lsp_references") end,
+  { desc = "Show references in Trouble" })
+
