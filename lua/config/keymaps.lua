@@ -48,11 +48,8 @@ map('n', '<leader>k', vim.lsp.buf.signature_help, { desc = "Function signature h
 map('n', "<leader>r",vim.lsp.buf.rename, opts)
 
 map("n", "<leader>rn", function()
-  vim.lsp.buf.rename()
+	vim.lsp.buf.rename()
   -- After renaming, open Trouble references
-  vim.defer_fn(function()
-    require("trouble").open("lsp_references")
-  end, 200)
 end, { desc = "Rename symbol and show references" })
 
 
