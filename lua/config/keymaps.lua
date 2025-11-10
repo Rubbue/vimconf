@@ -23,9 +23,6 @@ map("n", "<leader>fb", "<cmd>FzfLua buffers /<cr>",opts)
 -- Telescope live grep
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 
--- Lazy open
-map("n", "<leader>l", "<cmd>Lazy<cr>", opts)
-
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
 
 map("n", "<leader>fa", function()
